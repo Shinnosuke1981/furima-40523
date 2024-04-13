@@ -10,7 +10,7 @@
 | first_name_kanji    | string | null: false               |
 | last_name_katakana  | string | null: false               |
 | first_name_katakana | string | null: false               |
-| birth_date          | string | null: false               |
+| birth_date          | date   | null: false               |
 
 ### Association
 
