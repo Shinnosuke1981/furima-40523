@@ -10,26 +10,40 @@
 | first_name_kanji    | string | null: false               |
 | last_name_katakana  | string | null: false               |
 | first_name_katakana | string | null: false               |
+| birth_date          | string | null: false               |
 
 ### Association
 
  - has_many :items
  - has_many :orders
- - has_many :shipping_addresses
+ - has_many :addresses
 
 ## items テーブル
 
-| Column                      | Type       | Options                  |
-| --------------------------- | ---------- | ------------------------ |
-| title                       | string     | null: false              |
-| item_price                  | integer    | null: false              |
-| shipping_fee_responsibility | string     | null: false              |
-| comment                     | text       | null: false              |
-| user                        | references | null: false, foreign_key |
-| item_category               | string     | null: false              |
-| item_condition              | string     | null: false              |
-| shipping_origin             | string     | null: false              |
-| estimated_shipping_date     | string     | null: false              |
+| Column                      | Type       | Options                        |
+| --------------------------- | ---------- | ------------------------------ |
+| title                       | string     | null: false                    |
+| item_price                  | integer    | null: false                    |
+| shipping_fee_responsibility | string     | null: false                    |
+| comment                     | text       | null: false                    |
+| user                        | references | null: false, foreign_key: true |
+| item_category               | string     | null: false                    |
+| item_condition              | string     | null: false                    |
+| shipping_origin             | string     | null: false                    |
+| estimated_shipping_date     | string     | null: false                    |
+
+| Column                         | Type       | Options                        |
+| ---------------------------    | ---------- | ------------------------------ |
+| title                          | string     | null: false                    |
+| item_price                     | integer    | null: false                    |
+| shipping_fee_responsibility_id | integer    | null: false                    |
+| comment                        | text       | null: false                    |
+| user                           | references | null: false, foreign_key: true |
+| item_category_id               | integer    | null: false                    |
+| item_condition_id              | integer    | null: false                    |
+| shipping_origin_id             | integer    | null: false                    |
+| estimated_shipping_date_id     | integer    | null: false   
+
 
 ### Association
 
@@ -38,32 +52,29 @@
 
 ## orders テーブル
 
-| Column           | Type       | Options                  |
-| ---------------- | ---------- | ------------------------ |
-| user             | references | null: false, foreign_key |
-| item             | references | null: false, foreign_key |
-| purchase_date    | string     | null: false              |
-| order_item_price | datetime   | null: false              |
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| user             | references | null: false, foreign_key: true |
+| item             | references | null: false, foreign_key: true |
 
 ### Association        
 
  - belongs_to :user
  - belongs_to :item
- - belongs_to :item
 
 ## addresses テーブル
 
-| Column        | Type   | Options     |
-| ------------- | ------ | ----------- |
-| postal_code   | string | null: false |
-| prefecture    | string | null: false |
-| city          | string | null: false |
-| street_number | string | null: false | 
-| build_name    | string | |
-| phone_number  | string | null: false | 
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| postal_code   | string     | null: false                    |
+| prefecture    | string     | null: false                    |
+| city          | string     | null: false                    |
+| street_number | string     | null: false                    | 
+| build_name    | string     | |
+| phone_number  | string     | null: false                    | 
+| order         | references | null: false, foreign_key: true |
 
 ### Association
- - belongs_to :user
  - has_many :order
 
 
