@@ -20,18 +20,6 @@
 
 ## items テーブル
 
-| Column                      | Type       | Options                        |
-| --------------------------- | ---------- | ------------------------------ |
-| title                       | string     | null: false                    |
-| item_price                  | integer    | null: false                    |
-| shipping_fee_responsibility | string     | null: false                    |
-| comment                     | text       | null: false                    |
-| user                        | references | null: false, foreign_key: true |
-| item_category               | string     | null: false                    |
-| item_condition              | string     | null: false                    |
-| shipping_origin             | string     | null: false                    |
-| estimated_shipping_date     | string     | null: false                    |
-
 | Column                         | Type       | Options                        |
 | ---------------------------    | ---------- | ------------------------------ |
 | title                          | string     | null: false                    |
