@@ -48,6 +48,7 @@
 
  - belongs_to :user
  - belongs_to :item
+ - has_one :address
 
 ## addresses テーブル
 
@@ -62,7 +63,7 @@
 | order         | references | null: false, foreign_key: true |
 
 ### Association
- - has_many :order
+ - belongs_to :order
 
 
 
