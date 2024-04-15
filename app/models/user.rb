@@ -3,4 +3,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validates :nickname, presence: true
+  validates :birthday, presence: true
+
+  with_options presence: true, format: { with: /\A[一-龥々]+\z/, message: '漢字を使用してください' } do
+    validates :last_name_kanji
+    validates :first_name_kanji
+  end
+  with_options presence: true, format: { with: /\A[ァ-ヶ]+\z/, message: 'カタカナを使用してください' } do
+    validates :last_name_katakana
+    validates :first_name_katakana
+  end
 end
