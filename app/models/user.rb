@@ -7,7 +7,7 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :birthday, presence: true
 
-  with_options presence: true, format: { with: /\A[一-龥々]+\z/, message: '漢字を使用してください' } do
+  with_options presence: true, format: { with: /\A[ぁ-ん一-龥々]+\z/, message: '漢字かひらがなを使用してください' } do
     validates :last_name_kanji
     validates :first_name_kanji
   end
