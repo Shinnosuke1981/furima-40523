@@ -1,11 +1,15 @@
-const priceInput = document.getElementById("item-price");
-priceInput.addEventListener("input", () => {
-  const inputValue = priceInput.value;
-  console.log(inputValue);
-})
+window.addEventListener('turbo:load', () => {
+  console.log("turbo:load is working...");
 
-const addTaxDom = document.getElementById("add-tax-price");
-addTaxDom.innerHTML = inputValue * 0.1;
+  const priceInput = document.getElementById("item-price");
+  priceInput.addEventListener("input", () => {
+    const inputValue = priceInput.value;
+    console.log(inputValue);
 
-const addTaxDom = document.getElementById("profit");
-addTaxDom.innerHTML = inputValue * 1.1;
+    const addTaxDom = document.getElementById("add-tax-price");
+    addTaxDom.innerHTML = Math.floor(inputValue * 0.1);
+
+    const profitDom = document.getElementById("profit");
+    profitDom.innerHTML = Math.floor(inputValue * 0.9);
+  })
+});
