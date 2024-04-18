@@ -1,5 +1,4 @@
 window.addEventListener('turbo:load', () => {
-  console.log("turbo:load is working...");
 
   const priceInput = document.getElementById("item-price");
   priceInput.addEventListener("input", () => {
