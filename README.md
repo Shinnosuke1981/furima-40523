@@ -29,7 +29,7 @@
 | item_category_id               | integer    | null: false                    |
 | item_condition_id              | integer    | null: false                    |
 | shipping_origin_id             | integer    | null: false                    |
-| estimated_shipping_date_id     | integer    | null: false   
+| estimated_shipping_date_id     | integer    | null: false                    |
 
 
 ### Association
