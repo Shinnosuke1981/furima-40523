@@ -10,11 +10,12 @@ class Item < ApplicationRecord
 
   validates :image, presence: true
   validates :title, presence: true
-  validates :item_price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
-  validates :shipping_fee_responsibility_id, numericality: { other_than: 1 , message: "can't be blank"} 
+  validates :item_price, presence: true,
+                         numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+  validates :shipping_fee_responsibility_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :comment, presence: true
-  validates :item_category_id, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :item_condition_id, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :shipping_origin_id, numericality: { other_than: 1 , message: "can't be blank"} 
-  validates :estimated_shipping_date_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :item_category_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :item_condition_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :shipping_origin_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :estimated_shipping_date_id, numericality: { other_than: 1, message: "can't be blank" }
 end
