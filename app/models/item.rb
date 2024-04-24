@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :shipping_fee_responsibility
   belongs_to :shipping_origin
   belongs_to :estimated_shipping_date
+  has_one :order
 
   validates :image, presence: true
   validates :title, presence: true
