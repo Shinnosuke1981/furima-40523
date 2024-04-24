@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
   before_action :set_item, only: [:index, :create]
-  before_action :redirect_if_own_item, only: [:index, :create]
+  before_action :redirect_if_not_applicable, only: [:index, :create]
 
   def index
     gon.public_key = ENV['PAYJP_PUBLIC_KEY']
@@ -26,10 +26,10 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  def redirect_if_own_item
-    return unless @item.user_id == current_user.id
-
-    redirect_to root_path
+  def redirect_if_not_applicable
+    if @item.user_id == current_user.id || @item.order.present?
+      redirect_to root_path
+    end
   end
 
   def order_params
