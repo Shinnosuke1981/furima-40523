@@ -52,15 +52,15 @@
 
 ## addresses テーブル
 
-| Column        | Type       | Options                        |
-| ------------- | ---------- | ------------------------------ |
-| postal_code   | string     | null: false                    |
-| prefecture_id | integer    | null: false                    |
-| city          | string     | null: false                    |
-| street_number | string     | null: false                    | 
-| build_name    | string     | |
-| phone_number  | string     | null: false                    | 
-| order         | references | null: false, foreign_key: true |
+| Column             | Type       | Options                        |
+| -------------      | ---------- | ------------------------------ |
+| postal_code        | string     | null: false                    |
+| shipping_origin_id | integer    | null: false                    |
+| city               | string     | null: false                    |
+| street_number      | string     | null: false                    | 
+| build_name         | string     | |
+| phone_number       | string     | null: false                    | 
+| order              | references | null: false, foreign_key: true |
 
 ### Association
  - belongs_to :order
